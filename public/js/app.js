@@ -1859,15 +1859,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    toggleNavbar: function toggleNavbar() {
+      var x = document.getElementById("myTopNav");
+      console.log(x);
+
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -37916,41 +37921,38 @@ var render = function() {
     { staticClass: "container" },
     [
       _c(
-        "nav",
-        { staticClass: "navbar navbar-expand-xl navbar-light bg-light" },
+        "div",
+        { staticClass: "topnav", attrs: { id: "myTopNav" } },
         [
-          _vm._m(0),
+          _c("a", { staticClass: "active", attrs: { href: "#" } }, [
+            _vm._v("Laravel Vue")
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "collapse navbar-collapse" }, [
-            _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    { staticClass: "nav-link", attrs: { to: "/" } },
-                    [_vm._v("Tasks List")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    { staticClass: "nav-link", attrs: { to: "/create" } },
-                    [_vm._v("Create Task")]
-                  )
-                ],
-                1
-              )
-            ])
-          ])
-        ]
+          _c("router-link", { staticClass: "nav-link", attrs: { to: "/" } }, [
+            _vm._v("Tasks List")
+          ]),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "nav-link", attrs: { to: "/create" } },
+            [_vm._v("Create Task")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "icon",
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  return _vm.toggleNavbar()
+                }
+              }
+            },
+            [_vm._v("\n            #\n        ")]
+          )
+        ],
+        1
       ),
       _vm._v(" "),
       _c("router-view")
@@ -37958,28 +37960,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarSupportedContent",
-          "aria-controls": "navbarSupportedContent",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation"
-        }
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
